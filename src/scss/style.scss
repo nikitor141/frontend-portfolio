@@ -1,0 +1,162 @@
+@import "fonts";
+@import "reset";
+
+//	snippets -----------------------------------------------
+// fsc - fullscreen;
+// brg - burger;
+// brg-2 - burger animated;
+//---------------------------------------------------------
+
+//functions and mixins ------------------------------------
+
+@function rem($pixels) {
+   @return calc($pixels/10)+rem;
+ } 
+@mixin tabletReset {
+   @media (min-width: (1025px)){
+      @content;
+   }
+}
+@mixin tablet {
+   @media (max-width: (1024px)) {
+      @content;
+   }
+ }
+ @mixin tabletOnly {
+   @media (max-width: (1024px)) and (min-width: (531px)) {
+      @content;
+   }
+ }
+@mixin mobileReset {
+   @media (min-width: (531px)){
+      @content;
+   }
+}
+ @mixin mobile {
+   @media (max-width: (530px)) {
+      @content;
+   }
+ }
+ 
+//variables -----------------------------------------------
+
+
+
+//scss  ---------------------------------------------------
+
+
+
+//keyframes -----------------------------------------------
+
+
+
+//reset ---------------------------------------------------
+
+img {
+   max-width: 100%;
+   width: 100%;
+   height: auto;
+}
+
+input,
+textarea {
+   border-radius: 0;
+}
+
+html {
+   --refRes: 1920;
+   scroll-behavior: smooth;
+   font-size: calc(100vw / var(--refRes) * 10);
+
+   @include tablet {
+      --refRes: 768;
+   }
+   @include mobile {
+      --refRes: 320;
+   }
+}
+
+body {
+   // font-family: "Roboto", sans-serif;
+   // color: $N;
+   font-size: rem(14);
+}
+
+a {
+   color: inherit;
+}
+
+button {
+   font-size: inherit;
+   color: inherit
+}
+
+//anchors -------------------------------------------------
+
+// #foo,... {
+//    scroll-margin-top: var(--header-height);
+// }
+
+//js common blocks ----------------------------------------
+
+
+
+//flex wrapper---------------------------------------------
+
+.wrapper {
+   position: relative;
+   overflow: hidden; // не будет работать sticky
+   overflow-wrap: break-word;
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+}
+
+//grid wrapper --------------------------------------
+
+.wrapper {
+   position: relative;
+   overflow: hidden; // не будет работать sticky
+   overflow-wrap: break-word;
+   min-height: 100%;
+
+   display: grid;
+
+   // grid-template-areas:
+   // 	"h h"
+   // 	"a c"
+   // 	"f f"
+   // 	/1fr 2fr;
+   grid-template-rows: minmax(rem(N), auto) 1fr minmax(rem(N), auto);
+
+}
+
+
+// common -------------------------------------------------
+
+.container {
+   min-width: 320px;
+   max-width: rem(1130); //ширина контентной части
+   padding: 0 rem(15); // плюсуешь 2x padding к контентной части
+   margin: 0 auto;
+}
+
+//bem blocks ----------------------------------------------
+
+
+
+//header --------------------------------------------------
+
+
+
+//flex main -----------------------------------------------
+
+.content {
+   flex-grow: 1;
+}
+
+//footer --------------------------------------------------
+
+
+
+//js swap blocks ------------------------------------------
