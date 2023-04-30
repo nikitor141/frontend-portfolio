@@ -35,6 +35,7 @@
     "gulp-webp-html-nosvg": "latest",
     "gulp-webpcss": "latest",
     "gulp-zip": "latest",
+    "imask": "^6.6.1",
     "sass": "latest",
     "stylelint": "latest",
     "stylelint-config-recess-order": "latest",

@@ -107,11 +107,19 @@ $theme-dark : (
    line-height: 1.5em;
    text-transform: uppercase;
    letter-spacing: 0.03em;
+
+   span {
+      display: block;
+   }
 }
 %title-s {
    font-size: rem(28);
    line-height: 1.5em;
    opacity: .8;
+
+   span {
+      display: block;
+   }
 }
 %text-bold {
    font-size: rem(16);
@@ -182,7 +190,7 @@ button {
 
 //anchors -------------------------------------------------
 
-#gg, #foo {
+#about, #portfolio, #steps, #price, #contact {
    scroll-margin-top: var(--header-height);
 }
 
@@ -275,6 +283,122 @@ button {
       &::after {
          right: 0;
       }   
+   }
+}
+
+.form {
+   display: flex;
+   flex-direction: column;
+
+   &__label {
+      margin: 0 0 rem(10) 0;
+      font-size: rem(12);
+      line-height: 1.5em;
+      opacity: .8;
+   }
+
+   &__input {
+      padding: rem(24) rem(20);
+      margin: 0 0 rem(20) 0;
+      font-size: rem(12);
+      line-height: 1.5em;
+      color: cl(secondary);
+      background-color: #e5e4e2;
+      outline: none;
+      transition-duration: .3s;
+      transition-property: background, color;
+
+      .theme-dark & {
+         background-color: #38383a;
+      }
+
+      &::placeholder {
+         font-size: rem(12);
+         line-height: 1.5em;
+         opacity: .3;
+      }
+   }
+
+   &__dropdown {
+      position: relative;
+      margin: 0 0 rem(20) 0;
+
+      svg {
+         position: absolute;
+         top: 50%;
+         right: rem(25);
+         width: rem(11);
+         height: auto;
+         transition: transform .3s;
+         transform: translateY(-50%);
+
+         path {
+            transition: fill .3s;
+         }
+      }
+
+      & .form__input {
+         width: 100%;
+         margin: 0;
+         cursor: pointer;
+      }
+
+      &.active {
+         svg {
+            transform: translateY(-50%) rotateZ(180deg);
+         }
+      }
+   }
+
+   &__dropdown-options {
+      position: absolute;
+      top: 90%;
+      left: 0;
+      z-index: 1;
+      display: flex; 
+      flex-direction: column;
+      width: 100%;
+      height: 0;
+      padding: 0 rem(20) 0;
+      overflow: hidden;
+      background-color: #e5e4e2;
+      transition: .3s;
+
+      .theme-dark & {
+         background-color: #38383a;
+      }
+   }
+
+   &__dropdown-option {
+      padding: rem(7) 0;
+      font-size: rem(12);
+      line-height: 1.5em;
+      cursor: pointer;
+      opacity: .4;
+      transition: opacity .3s;
+
+      &:last-child {
+         padding-bottom: rem(17);
+      }
+
+      &:hover {
+         opacity: 1;
+      }
+   }
+
+   &__submit {
+      padding: rem(20);
+      font-size: rem(16);
+      line-height: 1.5em;
+      color: cl('white');
+      background-color: cl(brand);
+      transition: background .3s;
+
+      @include tabletReset {
+         &:hover {
+            background-color: #EA0E00;
+         }
+      }
    }
 }
 
@@ -513,6 +637,7 @@ button {
 
    &__item-title {
       @extend %title-s;
+      opacity: 1;
 
       &::before {
          margin: 0 rem(40) 0 0;
@@ -653,7 +778,7 @@ button {
 }
 
 .skills {
-   padding: rem(90) 0;
+   padding: rem(90) 0 rem(130);
 
    &__body {}
 
@@ -744,7 +869,7 @@ button {
       position: absolute;
       top: 100%;
       z-index: 1;
-      padding: rem(27) rem(15);
+      padding: rem(20) rem(20) rem(27);
       font-size: rem(10);
       font-weight: 500;
       line-height: 1.5em;
@@ -760,10 +885,10 @@ button {
          position: absolute;
          top: rem(-15);
          left: 50%;
-         transform: translateX(-50%);
          content: "";
          border: rem(8) solid transparent;
          border-bottom-color: #E31B1B;
+         transform: translateX(-50%);
       }
    }
 
@@ -774,8 +899,206 @@ button {
    &__tooltip-description {}
 }
 
+.price {
+   @extend %decor-circle;
+   padding: rem(50) 0 rem(150);
+   background-position: rem(320) 0;
+   background-size: rem(140);
+
+   &__body {}
+
+   &__top {
+      display: flex;
+      gap: rem(30);
+      justify-content: space-between;
+      padding: 0 0 rem(80) 0;
+   }
+
+   &__title {
+      @extend %title-m;
+   }
+
+   &__text {
+      @extend %title-s;
+      flex: 0 0 rem(560);
+   }
+
+   &__list {}
+
+   &__item {
+      display: flex;
+      gap: rem(70);
+      justify-content: space-between;
+      padding: rem(60) 0 rem(46);
+      border-top: rem(1) solid cl(secondary);
+      transition: border-color .3s;
+   }
+
+   &__item-titles {
+      flex-basis: rem(400);
+   }
+
+   &__titles-title {
+      @extend %title-s;
+      margin: 0 0 rem(20) 0;
+      opacity: 1;
+   }
+
+   &__titles-description {
+      @extend %text;
+      margin: 0 0 rem(75) 0;
+   }
+
+   &__item-info {
+      flex-basis: rem(560);
+   }
+
+   &__info-title {
+      @extend %text-bold;
+      margin: 0 0 rem(20) 0;
+      text-transform: none;
+      letter-spacing: normal;
+   }
+
+   &__info-list {
+      margin: 0 0 rem(40) 0;
+   }
+
+   &__info-list-item {
+      @extend %text;
+      margin: 0 0 rem(10) 0;
+      list-style: disc inside;
+   }
+
+   &__info-price {
+      padding: rem(13) 0 rem(14) rem(45);
+      margin-left: rem(-45);
+      font-size: rem(42);
+      font-weight: 700;
+      line-height: 1.5em;
+
+
+      .price__item:nth-child(odd) &{
+         @extend %decor-circle;
+         background-position: left rem(0) center;
+         background-size: contain;
+      }
+   }
+}
+
+.contact {
+   @extend %decor;
+   padding: rem(30) 0 rem(70) 0;
+   background-position: rem(210) 0;
+   background-size: rem(328);
+
+   &__body {}
+
+   &__top {
+      display: flex;
+      gap: rem(30);
+      justify-content: space-between;
+      padding: 0 0 rem(60) 0;
+      border-bottom: rem(1) solid cl(secondary);
+      transition: border-color .3s;
+   }
+
+   &__title {
+      @extend %title-m;
+   }
+
+   &__text {
+      @extend %title-s;
+      flex: 0 0 rem(560);
+
+      @include tabletReset {
+         padding: 0 rem(60) 0 0;
+      }
+   }
+
+   &__content {
+      display: flex;
+      gap: rem(30);
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: rem(60) 0;
+   }
+
+   &__form {
+      flex: 0 0 rem(560);
+   }
+
+}
+
 //footer --------------------------------------------------
 
+.footer {
+   padding: 0 0 rem(42);
 
+   &__body {
+      padding-top: rem(60);
+      border-top: rem(1) solid cl(secondary);
+      transition: border-color .3s;
+   }
+
+   &__info {
+      display: flex;
+      gap: rem(30);
+      align-items: center;
+      margin: 0 0 rem(40) 0;
+   }
+
+   &__menu {
+      flex-grow: 1;
+   }
+
+   &__menu-list {
+      display: flex;
+   }
+
+   &__menu-item {
+      &:first-child {
+         .footer__menu-link {
+            padding-left: 0;
+         }
+      }
+   }
+
+   &__menu-link {
+      display: block;
+      padding: rem(5) rem(15);
+      transition: color .3s;
+
+      &:hover {
+         color: cl(brand)
+      }
+   }
+
+   &__legal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: rem(12);
+      line-height: 1.5em;
+   }
+
+   &__legal-item {
+      color: cl(secondary, .3);
+      transition: color .3s;
+
+      .theme-dark & {
+         color: cl(secondary, .5);
+      }
+
+      a {
+         text-decoration: underline;
+         transition: color .3s;
+
+         &:hover {
+            color: cl(secondary);
+         }
+      }
+   }
+}
 
 //js swap blocks ------------------------------------------
