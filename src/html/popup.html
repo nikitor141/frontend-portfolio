@@ -1,0 +1,41 @@
+<div class="popup-wrapper">
+   <div class="popup">
+      <button class="popup__close" title="Закрыть">
+         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="25.288" height="2.06669"
+               transform="matrix(0.69782 0.716273 -0.69782 0.716273 2.35352 0.388428)" fill="var(--color-secondary)" />
+            <rect width="25.8556" height="2.06669" transform="matrix(0.69782 -0.716273 0.69782 0.716273 0 18.5198)"
+               fill="var(--color-secondary)" />
+         </svg>
+      </button>
+      <div class="popup__top">
+         <h2 class="popup__title">Расскажите о&nbsp;своем проекте</h2>
+         <p class="popup__text">
+            Заполните все поля, и&nbsp;я&nbsp;свяжусь с&nbsp;вами в&nbsp;ближайшее время
+         </p>
+      </div>
+      <form class="form">
+         <label class="form__label" for="contact-p">Телефон или почта</label>
+         <input class="form__input form__input--tel" id="contact-p" name="contact"
+            placeholder="Введите телефон или почту" type="text" required>
+         <label class="form__label" for="connect-p">Выберите удобный способ связи</label>
+         <div class="form__dropdown">
+            <input class="form__input" id="connect-p" name="connect" type="text" value="Telegram" readonly required>
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path
+                  d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989592 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5L5.25 6L6.75 6L6.75 5L5.25 5Z"
+                  fill="var(--color-secondary)" />
+            </svg>
+            <div class="form__dropdown-options-wrapper">
+               <div class="form__dropdown-options">
+                  <p class="form__dropdown-option">Telegram</p>
+                  <p class="form__dropdown-option">WhatsApp</p>
+                  <p class="form__dropdown-option">Звонок на телефон</p>
+                  <p class="form__dropdown-option">SMS сообщение</p>
+               </div>
+            </div>
+         </div>
+         <button class="form__submit" type="submit">Отправить</button>
+      </form>
+   </div>
+</div>

@@ -10,8 +10,8 @@
    <link rel="manifest" href="site.webmanifest">
    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#232326">
    <meta name="msapplication-config" content="browserconfig.xml">
-   <link rel="stylesheet" href="css/style.min.css?_v=20230430194731">
-   <script defer src="js/app.min.js?_v=20230430194731"></script>
+   <link rel="stylesheet" href="css/style.min.css?_v=20230503012645">
+   <script defer src="js/app.min.js?_v=20230503012645"></script>
    <title>Главная</title>
 </head>
 
@@ -21,10 +21,54 @@
       brg - burger;
     -->
    <div class="wrapper">
+      <div class="popup-wrapper">
+   <div class="popup">
+      <button class="popup__close" title="Закрыть">
+         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="25.288" height="2.06669"
+               transform="matrix(0.69782 0.716273 -0.69782 0.716273 2.35352 0.388428)" fill="var(--color-secondary)" />
+            <rect width="25.8556" height="2.06669" transform="matrix(0.69782 -0.716273 0.69782 0.716273 0 18.5198)"
+               fill="var(--color-secondary)" />
+         </svg>
+      </button>
+      <div class="popup__top">
+         <h2 class="popup__title">Расскажите о&nbsp;своем проекте</h2>
+         <p class="popup__text">
+            Заполните все поля, и&nbsp;я&nbsp;свяжусь с&nbsp;вами в&nbsp;ближайшее время
+         </p>
+      </div>
+      <form class="form">
+         <label class="form__label" for="contact-p">Телефон или почта</label>
+         <input class="form__input form__input--tel" id="contact-p" name="contact"
+            placeholder="Введите телефон или почту" type="text" required>
+         <label class="form__label" for="connect-p">Выберите удобный способ связи</label>
+         <div class="form__dropdown">
+            <input class="form__input" id="connect-p" name="connect" type="text" value="Telegram" readonly required>
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path
+                  d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989592 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5L5.25 6L6.75 6L6.75 5L5.25 5Z"
+                  fill="var(--color-secondary)" />
+            </svg>
+            <div class="form__dropdown-options-wrapper">
+               <div class="form__dropdown-options">
+                  <p class="form__dropdown-option">Telegram</p>
+                  <p class="form__dropdown-option">WhatsApp</p>
+                  <p class="form__dropdown-option">Звонок на телефон</p>
+                  <p class="form__dropdown-option">SMS сообщение</p>
+               </div>
+            </div>
+         </div>
+         <button class="form__submit" type="submit">Отправить</button>
+      </form>
+   </div>
+</div>
       <header class="header">
    <div class="container">
       <div class="header__body">
          <nav class="header__menu">
+            <button class="burger" aria-label="Меню.">
+               <span></span>
+            </button>
             <ul class="header__menu-list">
                <li class="header__menu-item">
                   <a class="header__menu-link" href="#about">Обо мне</a>
@@ -39,11 +83,53 @@
                   <a class="header__menu-link" href="#price">Цены</a>
                </li>
                <li class="header__menu-item">
-                  <a class="header__menu-link" href="#contacts">Обратная связь</a>
+                  <a class="header__menu-link" href="#popup">Обратная связь</a>
                </li>
             </ul>
          </nav>
-         <ul class="links">
+         <div class="header__mobile-wrapper">
+            <div class="header__mobile">
+               <nav class="header__menu-mobile">
+                  <ul class="header__menu-mobile-list">
+                     <li class="header__menu-mobile-item">
+                        <a class="header__menu-mobile-link" href="#about">Обо мне</a>
+                     </li>
+                     <li class="header__menu-mobile-item">
+                        <a class="header__menu-mobile-link" href="#portfolio">Портфолио</a>
+                     </li>
+                     <li class="header__menu-mobile-item">
+                        <a class="header__menu-mobile-link" href="#steps">Этапы работ</a>
+                     </li>
+                     <li class="header__menu-mobile-item">
+                        <a class="header__menu-mobile-link" href="#price">Цены</a>
+                     </li>
+                     <li class="header__menu-mobile-item">
+                        <a class="header__menu-mobile-link" href="#contact">Обратная связь</a>
+                     </li>
+                  </ul>
+               </nav>
+               <ul class="links header__links-mobile">
+                  <li class="links__item">
+                     <a class="links__link" href="tel:89237777777">8 923 777-77-77</a>
+                  </li>
+                  <li class="links__item">
+                     <a class="links__link" href="mailto:alexdev@gmail.com">alexdev@gmail.com</a>
+                  </li>
+               </ul>
+               <ul class="links header__links-mobile">
+                  <li class="links__item">
+                     <a class="links__link" href="#">Vk</a>
+                  </li>
+                  <li class="links__item">
+                     <a class="links__link" href="#">Instagram</a>
+                  </li>
+                  <li class="links__item">
+                     <a class="links__link" href="#">Linkedin</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <ul class="links header__links">
             <li class="links__item">
                <a class="links__link" href="tel:89237777777">8 923 777-77-77</a>
             </li>
@@ -51,28 +137,28 @@
                <a class="links__link" href="mailto:alexdev@gmail.com">alexdev@gmail.com</a>
             </li>
          </ul>
+         <button class="header__theme-switcher" title="Сменить тему">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+               xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 48 48"
+               style="enable-background:new 0 0 512 512" xml:space="preserve">
+               <g class="moon">
+                  <path
+                     d="M46.482 31.9a.712.712 0 0 0-.89-.072 21.203 21.203 0 0 1-11.563 3.413c-11.728 0-21.27-9.542-21.27-21.27 0-4.12 1.18-8.117 3.412-11.562.392-.604-.284-1.393-.939-1.092C6.738 5.159 1.25 13.662 1.25 22.979c0 13.107 10.663 23.771 23.77 23.771 9.318 0 17.82-5.488 21.663-13.982.144-.317.03-.66-.2-.869z"
+                     fill="var(--color-secondary)" data-original="#000000"></path>
+                  <path
+                     d="M21 9.75A5.256 5.256 0 0 1 26.25 15a.75.75 0 0 0 1.5 0A5.256 5.256 0 0 1 33 9.75a.75.75 0 0 0 0-1.5A5.256 5.256 0 0 1 27.75 3a.75.75 0 0 0-1.5 0A5.256 5.256 0 0 1 21 8.25a.75.75 0 0 0 0 1.5zM35 16.75A4.255 4.255 0 0 1 39.25 21a.75.75 0 0 0 1.5 0A4.255 4.255 0 0 1 45 16.75a.75.75 0 0 0 0-1.5A4.255 4.255 0 0 1 40.75 11a.75.75 0 0 0-1.5 0A4.255 4.255 0 0 1 35 15.25a.75.75 0 0 0 0 1.5zM31.75 21a.75.75 0 0 0-1.5 0A3.254 3.254 0 0 1 27 24.25a.75.75 0 0 0 0 1.5A3.254 3.254 0 0 1 30.25 29a.75.75 0 0 0 1.5 0A3.254 3.254 0 0 1 35 25.75a.75.75 0 0 0 0-1.5A3.254 3.254 0 0 1 31.75 21z"
+                     fill="var(--color-secondary)" data-original="#000000"></path>
+               </g>
+               <g class="sun">
+                  <path
+                     d="M22.58 11.269c-6.237 0-11.311 5.075-11.311 11.312s5.074 11.312 11.311 11.312c6.236 0 11.311-5.074 11.311-11.312S28.816 11.269 22.58 11.269zM22.58 7.944a2.207 2.207 0 0 1-2.207-2.206V2.207a2.207 2.207 0 1 1 4.414 0v3.531a2.207 2.207 0 0 1-2.207 2.206zM22.58 37.215a2.207 2.207 0 0 0-2.207 2.207v3.53a2.207 2.207 0 1 0 4.414 0v-3.53a2.208 2.208 0 0 0-2.207-2.207zM32.928 12.231a2.208 2.208 0 0 1 0-3.121l2.497-2.497a2.207 2.207 0 1 1 3.121 3.121l-2.497 2.497a2.207 2.207 0 0 1-3.121 0zM12.231 32.93a2.205 2.205 0 0 0-3.121 0l-2.497 2.496a2.207 2.207 0 0 0 3.121 3.121l2.497-2.498a2.204 2.204 0 0 0 0-3.119zM37.215 22.58c0-1.219.988-2.207 2.207-2.207h3.531a2.207 2.207 0 1 1 0 4.413h-3.531a2.206 2.206 0 0 1-2.207-2.206zM7.944 22.58a2.207 2.207 0 0 0-2.207-2.207h-3.53a2.207 2.207 0 1 0 0 4.413h3.531a2.206 2.206 0 0 0 2.206-2.206zM32.928 32.93a2.208 2.208 0 0 1 3.121 0l2.497 2.497a2.205 2.205 0 1 1-3.121 3.12l-2.497-2.497a2.205 2.205 0 0 1 0-3.12zM12.231 12.231a2.207 2.207 0 0 0 0-3.121L9.734 6.614a2.207 2.207 0 0 0-3.121 3.12l2.497 2.497a2.205 2.205 0 0 0 3.121 0z"
+                     fill="var(--color-secondary)" data-original="#000000" class="">
+                  </path>
+               </g>
+            </svg>
+         </button>
       </div>
    </div>
-   <button class="header__theme-switcher" title="Сменить тему">
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 48 48"
-         style="enable-background:new 0 0 512 512" xml:space="preserve">
-         <g class="moon">
-            <path
-               d="M46.482 31.9a.712.712 0 0 0-.89-.072 21.203 21.203 0 0 1-11.563 3.413c-11.728 0-21.27-9.542-21.27-21.27 0-4.12 1.18-8.117 3.412-11.562.392-.604-.284-1.393-.939-1.092C6.738 5.159 1.25 13.662 1.25 22.979c0 13.107 10.663 23.771 23.77 23.771 9.318 0 17.82-5.488 21.663-13.982.144-.317.03-.66-.2-.869z"
-               fill="var(--color-secondary)" data-original="#000000"></path>
-            <path
-               d="M21 9.75A5.256 5.256 0 0 1 26.25 15a.75.75 0 0 0 1.5 0A5.256 5.256 0 0 1 33 9.75a.75.75 0 0 0 0-1.5A5.256 5.256 0 0 1 27.75 3a.75.75 0 0 0-1.5 0A5.256 5.256 0 0 1 21 8.25a.75.75 0 0 0 0 1.5zM35 16.75A4.255 4.255 0 0 1 39.25 21a.75.75 0 0 0 1.5 0A4.255 4.255 0 0 1 45 16.75a.75.75 0 0 0 0-1.5A4.255 4.255 0 0 1 40.75 11a.75.75 0 0 0-1.5 0A4.255 4.255 0 0 1 35 15.25a.75.75 0 0 0 0 1.5zM31.75 21a.75.75 0 0 0-1.5 0A3.254 3.254 0 0 1 27 24.25a.75.75 0 0 0 0 1.5A3.254 3.254 0 0 1 30.25 29a.75.75 0 0 0 1.5 0A3.254 3.254 0 0 1 35 25.75a.75.75 0 0 0 0-1.5A3.254 3.254 0 0 1 31.75 21z"
-               fill="var(--color-secondary)" data-original="#000000"></path>
-         </g>
-         <g class="sun">
-            <path
-               d="M22.58 11.269c-6.237 0-11.311 5.075-11.311 11.312s5.074 11.312 11.311 11.312c6.236 0 11.311-5.074 11.311-11.312S28.816 11.269 22.58 11.269zM22.58 7.944a2.207 2.207 0 0 1-2.207-2.206V2.207a2.207 2.207 0 1 1 4.414 0v3.531a2.207 2.207 0 0 1-2.207 2.206zM22.58 37.215a2.207 2.207 0 0 0-2.207 2.207v3.53a2.207 2.207 0 1 0 4.414 0v-3.53a2.208 2.208 0 0 0-2.207-2.207zM32.928 12.231a2.208 2.208 0 0 1 0-3.121l2.497-2.497a2.207 2.207 0 1 1 3.121 3.121l-2.497 2.497a2.207 2.207 0 0 1-3.121 0zM12.231 32.93a2.205 2.205 0 0 0-3.121 0l-2.497 2.496a2.207 2.207 0 0 0 3.121 3.121l2.497-2.498a2.204 2.204 0 0 0 0-3.119zM37.215 22.58c0-1.219.988-2.207 2.207-2.207h3.531a2.207 2.207 0 1 1 0 4.413h-3.531a2.206 2.206 0 0 1-2.207-2.206zM7.944 22.58a2.207 2.207 0 0 0-2.207-2.207h-3.53a2.207 2.207 0 1 0 0 4.413h3.531a2.206 2.206 0 0 0 2.206-2.206zM32.928 32.93a2.208 2.208 0 0 1 3.121 0l2.497 2.497a2.205 2.205 0 1 1-3.121 3.12l-2.497-2.497a2.205 2.205 0 0 1 0-3.12zM12.231 12.231a2.207 2.207 0 0 0 0-3.121L9.734 6.614a2.207 2.207 0 0 0-3.121 3.12l2.497 2.497a2.205 2.205 0 0 0 3.121 0z"
-               fill="var(--color-secondary)" data-original="#000000" class="">
-            </path>
-         </g>
-      </svg>
-   </button>
 </header>
       <main class="content">
          <section class="hero">
@@ -505,7 +591,7 @@
                               <li class="price__info-list-item">Одна посадочная страница</li>
                               <li class="price__info-list-item">От&nbsp;7&nbsp;дней</li>
                            </ul>
-                           <p class="price__info-price">От 7 000 Р</p>
+                           <p class="price__info-price"><span>От 7 000 Р<span></p>
                         </div>
                      </li>
                      <li class="price__item">
@@ -530,7 +616,7 @@
                               <li class="price__info-list-item">От&nbsp;2-10 страниц</li>
                               <li class="price__info-list-item">От&nbsp;15&nbsp;дней</li>
                            </ul>
-                           <p class="price__info-price">От 10 000 Р</p>
+                           <p class="price__info-price"><span>От 10 000 Р</span></p>
                         </div>
                      </li>
                      <li class="price__item">
@@ -555,7 +641,7 @@
                               <li class="price__info-list-item">От&nbsp;2-10&nbsp;страниц, корзина, карточка товара</li>
                               <li class="price__info-list-item">От&nbsp;20&nbsp;дней</li>
                            </ul>
-                           <p class="price__info-price">От 15 000 Р</p>
+                           <p class="price__info-price"><span>От 15 000 Р</span></p>
                         </div>
                      </li>
                   </ul>
@@ -586,8 +672,8 @@
                      </ul>
                      <form class="form contact__form">
                         <label class="form__label" for="contact">Телефон или почта</label>
-                        <input class="form__input" id="contact" name="contact" placeholder="Введите телефон или почту"
-                           type="text" required>
+                        <input class="form__input form__input--tel" id="contact" name="contact"
+                           placeholder="Введите телефон или почту" type="text" required>
                         <label class="form__label" for="connect">Выберите удобный способ связи</label>
                         <div class="form__dropdown">
                            <input class="form__input" id="connect" name="connect" type="text" value="Telegram" readonly
@@ -597,11 +683,13 @@
                                  d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989592 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5L5.25 6L6.75 6L6.75 5L5.25 5Z"
                                  fill="var(--color-secondary)" />
                            </svg>
-                           <div class="form__dropdown-options">
-                              <p class="form__dropdown-option">Telegram</p>
-                              <p class="form__dropdown-option">WhatsApp</p>
-                              <p class="form__dropdown-option">Звонок на телефон</p>
-                              <p class="form__dropdown-option">SMS сообщение</p>
+                           <div class="form__dropdown-options-wrapper">
+                              <div class="form__dropdown-options">
+                                 <p class="form__dropdown-option">Telegram</p>
+                                 <p class="form__dropdown-option">WhatsApp</p>
+                                 <p class="form__dropdown-option">Звонок на телефон</p>
+                                 <p class="form__dropdown-option">SMS сообщение</p>
+                              </div>
                            </div>
                         </div>
                         <button class="form__submit" type="submit">Отправить</button>

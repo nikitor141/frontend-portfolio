@@ -2,6 +2,7 @@ import * as webpTest from './modules/iswebp.js';
 import IMask from 'imask';
 webpTest.isWebp()
 
+
 //scrollMargin
 const header = document.querySelector('.header');
 let headerHeight;
@@ -14,6 +15,7 @@ scrollMargin();
 window.addEventListener('resize', () => {
    scrollMargin();
 });
+
 
 //themes
 const themeSwitcher = document.querySelector('.header__theme-switcher');
@@ -34,48 +36,62 @@ const setThemeCallback = (mq) => {
 darkThemeMq.addEventListener('change', setThemeCallback);
 setThemeCallback(darkThemeMq);
 
-//phone mask
 
-let dynamicMask = IMask(
-   contact,
-   {
-      mask: [
-         {
-            mask: '+7 000 000 00 00'
-         },
-         {
-            mask: /^\S*@?\S*$/
-         }
-      ]
-   });
-
-//form dropdown
-
-document.querySelectorAll('.form__dropdown').forEach(dropdown => {
-   let dropdownOptions = dropdown.querySelector('.form__dropdown-options');
-   let optionsHeight = 0;
-   let dropdownHeightFunc = () => {
-      if (dropdown.classList.contains('active')) {
-         dropdownOptions.style.height = optionsHeight + 'px';
-      } else {
-         dropdownOptions.removeAttribute('style');
-      }
-   }
+//form
+document.querySelectorAll('.form').forEach(form => {
+   let dropdown = form.querySelector('.form__dropdown');
+   let dropdownInput = dropdown.querySelector('.form__input');
+   let dynamicMask = IMask(
+      form.querySelector('.form__input--tel'),
+      {
+         mask: [
+            {
+               mask: '+7 000 000 00 00'
+            },
+            {
+               mask: /^\S*@?\S*$/
+            }
+         ]
+      });
    dropdown.querySelectorAll('.form__dropdown-option').forEach(option => {
-      optionsHeight += option.offsetHeight;
       option.addEventListener('click', () => {
-         connect.value = option.innerHTML;
+         dropdownInput.value = option.innerHTML;
       });
    });
    dropdown.addEventListener('click', () => {
       dropdown.classList.toggle('active');
-      dropdownHeightFunc();
    });
-   window.addEventListener('resize', () => {
-      optionsHeight = 0;
-      dropdown.querySelectorAll('.form__dropdown-option').forEach(option => {
-         optionsHeight += option.offsetHeight;
-      });
-      dropdownHeightFunc()
-   })
+});
+
+
+//popup
+const popup = document.querySelector('.popup-wrapper');
+document.querySelectorAll('[href="#popup"]').forEach(popupTrigger => {
+   popupTrigger.addEventListener('click', e => {
+      e.preventDefault();
+      popup.classList.add('active');
+      document.body.classList.add('active');
+   });
+});
+popup.addEventListener('click', e => {
+   if (!e.target.closest('.popup') || e.target.closest('.popup__close')) {
+      popup.classList.remove('active');
+      document.body.classList.remove('active');
+   }
+});
+
+//mobile menu
+const mobileMenu = document.querySelector('.header__mobile-wrapper');
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', () => {
+   burger.classList.toggle('active');
+   document.body.classList.toggle('active');
+   mobileMenu.classList.toggle('active');
+});
+mobileMenu.addEventListener('click', e => {
+   if (!e.target.closest('.header__mobile') || e.target.closest('.header__menu-mobile-link')) {
+      burger.classList.remove('active');
+      document.body.classList.remove('active');
+      mobileMenu.classList.remove('active');
+   };
 });
