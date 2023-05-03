@@ -22,6 +22,11 @@ const themeSwitcher = document.querySelector('.header__theme-switcher');
 
 themeSwitcher.addEventListener('click', () => {
    document.documentElement.classList.toggle('theme-dark');
+   if (document.documentElement.classList.contains('theme-dark')) {
+      localStorage.setItem('theme', 'dark');
+   } else {
+      localStorage.setItem('theme', 'light');
+   }
 });
 
 const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
@@ -29,8 +34,10 @@ const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
 const setThemeCallback = (mq) => {
    if (mq.matches) {
       document.documentElement.classList.add('theme-dark');
+      localStorage.setItem('theme', 'dark');
    } else {
       document.documentElement.classList.remove('theme-dark');
+      localStorage.setItem('theme', 'light');
    }
 }
 darkThemeMq.addEventListener('change', setThemeCallback);

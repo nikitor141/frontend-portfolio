@@ -376,6 +376,38 @@ button {
    }
 }
 
+.menu {
+
+   @include tabletReset {
+      flex-grow: 1;
+   }
+
+   &__list {
+      display: flex;
+   }
+
+   &__item {}
+
+   &__link {
+      display: block;
+      padding: rem(5) rem(15);
+      transition: color .3s;
+      
+      @include mobile {
+         padding: rem(5) rem(8);
+         font-size: rem(10);
+      }
+
+      &:hover {
+         color: cl(brand)
+      }
+
+      .menu__item:first-child & {
+         padding-left: 0;
+      }
+   }
+}
+
 .discuss {
    @extend %text-bold;
    position: relative;
@@ -636,33 +668,9 @@ button {
       }
    }
 
-   &__menu {
-      @include tabletReset {
-         flex-grow: 1;
-      }
-   }
-
    &__menu-list {
-      display: flex;
-
       @include tablet {
          display: none;
-      }
-   }
-
-   &__menu-item {}
-
-   &__menu-link {
-      display: block;
-      padding: rem(5) rem(15);
-      transition: color .3s;
-
-      &:hover {
-         color: cl(brand)
-      }
-
-      .header__menu-item:first-child & {
-         padding-left: 0;
       }
    }
 
@@ -1474,6 +1482,9 @@ button {
       transition: border-color .3s;
       @include tablet {
          gap: rem(50);
+         &:last-child {
+            border-bottom: rem(1) solid cl(secondary);
+         }
       }
       @include mobile {
          gap: rem(20);
@@ -1695,33 +1706,7 @@ button {
       }
    }
 
-   &__menu {
-      flex-grow: 1;
-   }
-
-   &__menu-list {
-      display: flex;
-   }
-
-   &__menu-item {}
-
-   &__menu-link {
-      display: block;
-      padding: rem(5) rem(15);
-      transition: color .3s;
-      @include mobile {
-         padding: rem(5) rem(8);
-         font-size: rem(10);
-      }
-
-      &:hover {
-         color: cl(brand)
-      }
-
-      .footer__menu-item:first-child & {
-         padding-left: 0;
-      }
-   }
+   
 
    &__legal {
       display: flex;
