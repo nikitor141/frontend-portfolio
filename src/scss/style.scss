@@ -70,20 +70,17 @@ $theme-dark : (
 );
 
 :root {
-  @if $colors {
-    @each $key, $value in $colors {
-      --color-#{$key} : #{$value};
-      --color-#{$key}--rgb : #{HexToRGB($value)};
-    }
-  }
+   @each $key, $value in $colors {
+   --color-#{$key} : #{$value};
+   --color-#{$key}--rgb : #{HexToRGB($value)};
+   }
 }
 .theme-dark {
-   @if $theme-dark {
-      @each $key, $value in $theme-dark {
-         --color-#{$key} : #{$value};
-         --color-#{$key}--rgb : #{HexToRGB($value)};
-       }
+   @each $key, $value in $theme-dark {
+      --color-#{$key} : #{$value};
+      --color-#{$key}--rgb : #{HexToRGB($value)};
    }
+
    %decor {
       background-image: url("@img/background/decor-dark.svg");
    }
@@ -336,6 +333,10 @@ button {
 
 .links {
    display: flex;
+   flex-wrap: wrap;
+   row-gap: rem(20);
+   align-items: center;
+   justify-content: center;
 
    &__item {
       &:not(:last-child) {
@@ -384,6 +385,12 @@ button {
 
    &__list {
       display: flex;
+      flex-wrap: wrap;
+
+      @include tablet {
+         align-items: center;
+         justify-content: center;
+      }
    }
 
    &__item {}
@@ -746,6 +753,8 @@ button {
    }
 
    &__links {
+      flex-shrink: 0;
+
       @include tablet {
          display: none;
       }
